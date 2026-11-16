@@ -1,0 +1,25 @@
+# Core Deep Learning Framework
+torch>=1.12.0
+torchvision>=0.13.0
+
+# Numerical & Data Processing
+numpy>=1.21.0
+pandas>=1.3.0
+scipy>=1.7.0
+Pillow>=8.3.0
+
+# Visualization & Plotting
+matplotlib>=3.4.0
+seaborn>=0.11.0
+
+# Neural Network Complexity Profiling
+thop>=0.1.1
+
+# Notebook & Interactive Environment
+jupyter>=1.0.0
+ipykernel>=6.0.0
+ipython>=7.30.0
+
+# Utilities
+tqdm>=4.62.0
+requests>=2.26.0

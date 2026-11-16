@@ -1,0 +1,38 @@
+{
+  "model": "PraNet_DynamicConv_Res2Net50",
+  "experiment_name": "dynamic_K4",
+  "backbone": {
+    "name": "Res2Net50_v1b_26w_4s",
+    "weights_url": "https://shanghuagao.oss-cn-beijing.aliyuncs.com/res2net/res2net50_v1b_26w_4s-3cf99910.pth",
+    "sha256_prefix": "3cf99910",
+    "local_path": "pretrained/res2net50_v1b_26w_4s-3cf99910.pth"
+  },
+  "dynamic_conv": {
+    "K": 4,
+    "stages": [2, 3],
+    "target_blocks": ["ra2_*", "ra3_*"],
+    "reduction": 4,
+    "temperature": 1.0,
+    "kernel_sizes": [[3, 3], [5, 5]],
+    "bias": false,
+    "record_attention": true
+  },
+  "training": {
+    "epoch": 20,
+    "lr": 0.0001,
+    "batch_size": 16,
+    "trainsize": 352,
+    "clip": 0.5,
+    "decay_rate": 0.1,
+    "decay_epoch": 50,
+    "optimizer": "Adam",
+    "loss": "BCEWithLogitsLoss + IoULoss",
+    "seeds": [0, 1, 2],
+    "save_epochs": [9, 19]
+  },
+  "evaluation": {
+    "test_size": 352,
+    "metrics": ["Dice", "IoU", "Recall", "Precision", "Bootstrap_95_CI", "Attention_Weights"],
+    "threshold": 0.5
+  }
+}

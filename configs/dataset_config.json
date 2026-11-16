@@ -1,0 +1,53 @@
+{
+  "project_name": "PraNet_Polyp_Segmentation",
+  "root_dir": "./data",
+  "train_dataset": {
+    "name": "PolypTrainDataset",
+    "image_dir": "TrainDataset/image",
+    "mask_dir": "TrainDataset/masks",
+    "total_images": 1450,
+    "total_masks": 1450,
+    "image_size": [352, 352],
+    "input_channels": 3,
+    "normalize": {
+      "mean": [0.485, 0.456, 0.406],
+      "std": [0.229, 0.224, 0.225]
+    }
+  },
+  "test_datasets": {
+    "Kvasir": {
+      "type": "seen_domain",
+      "count": 100,
+      "images": "TestDataset/Kvasir/images",
+      "masks": "TestDataset/Kvasir/masks"
+    },
+    "CVC-ClinicDB": {
+      "type": "seen_domain",
+      "count": 62,
+      "images": "TestDataset/CVC-ClinicDB/images",
+      "masks": "TestDataset/CVC-ClinicDB/masks"
+    },
+    "CVC-300": {
+      "type": "unseen_domain",
+      "count": 60,
+      "images": "TestDataset/CVC-300/images",
+      "masks": "TestDataset/CVC-300/masks"
+    },
+    "CVC-ColonDB": {
+      "type": "unseen_domain",
+      "count": 380,
+      "images": "TestDataset/CVC-ColonDB/images",
+      "masks": "TestDataset/CVC-ColonDB/masks"
+    },
+    "ETIS-LaribPolypDB": {
+      "type": "unseen_domain",
+      "count": 196,
+      "images": "TestDataset/ETIS-LaribPolypDB/images",
+      "masks": "TestDataset/ETIS-LaribPolypDB/masks"
+    }
+  },
+  "download": {
+    "zenodo_url": "https://zenodo.org/records/5579392/files/PolypDataset.zip?download=1",
+    "md5": "0c45c453bc16424df7a2528966ccd939"
+  }
+}
